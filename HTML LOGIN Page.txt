@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        @font-face {
+            font-family: 'Apertos';
+            src: url('Apertos-Regular.otf');
+        }
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-container {
+            background-color: white;
+            padding: 20px;
+            border: 1px solid #000;
+            width: 300px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+        }
+        .login-container h2 {
+            text-align: center;
+            color: #000;
+        }
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #000;
+            margin-top: 10px;
+            cursor: pointer;
+            background-color: #000; /* Black color */
+            color: #fff; /* White text */
+            font-family: 'Arial'; /* Arial font */
+            transition: all 0.3s ease;
+        }
+        .login-container button:hover {
+            background-color: #fff; /* White color */
+            color: #000; /* Black text */
+            border-color: #000; /* Black border */
+        }
+        .login-container input[type="text"], .login-container input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-top: 10px;
+        }
+        .signup-text {
+            text-align: center;
+            margin-top: 10px;
+            color: #000;
+            cursor: pointer;
+            font-family: 'Arial'; /* Arial font */
+        }
+        .signup-text span {
+            text-decoration: underline; /* Underlined text */
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <input type="text" placeholder="Username" required>
+        <input type="password" placeholder="Password" required>
+        <button>Login</button>
+        <button>Continue as Guest</button>
+        <p class="signup-text">New user? <span>Sign up</span></p>
+    </div>
+</body>
+</html>

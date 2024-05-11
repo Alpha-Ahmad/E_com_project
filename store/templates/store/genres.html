@@ -1,0 +1,54 @@
+{% extends 'store/layouts/main.html' %}
+{% block content %}
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+
+.card-body {
+  background-color: #f8f9fa;
+  border: 1px solid #ddd; 
+  font-family: 'Playfair Display', serif; 
+  text-align: center; 
+  padding: 20px; 
+  margin-bottom: 20px; 
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); 
+  transition: 0.3s; 
+  color: black; /* Set text color to black */
+}
+
+.card-body:hover {
+  background-color: #e2e6ea; 
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2); 
+}
+
+.card-body h4 {
+  text-decoration: none; /* Remove underline */
+}
+.card-body a {
+  text-decoration: none; /* Remove underline */
+}
+
+
+h1 {
+  margin-bottom: 20px; 
+}
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Genres</h1>
+            <div class="row">
+                {% for item in genre %}
+                <div class="col-md-4">
+                  <a href="{% url 'genresview' item.name %}">
+                    <div class="card-body">
+                        <h4>{{ item.name }}</h4>
+                    </div>
+                  </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>            
+{% endblock content %}

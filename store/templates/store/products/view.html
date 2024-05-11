@@ -1,0 +1,188 @@
+{% extends 'store/layouts/main.html' %}
+{% block content %}
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;700&display=swap');
+
+/* Container & Layout */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Card Styles */
+.card {
+  display: flex;
+  font-family: 'Raleway', sans-serif;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+  background: #fff;
+  border-radius: 8px;
+}
+
+/* Card Sections */
+.card-left, .card-right {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+}
+
+.card-left {
+  justify-content: center;
+  align-items: center;
+}
+
+.card-right {
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Image Styles */
+.card-left img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+/* Typography */
+.card-info {
+  color: #333;
+  margin-top: 20px;
+}
+
+.card-info h2 {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.card-info .author, .card-info .genre {
+  display: block;
+}
+
+.description h3 {
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+/* Button Styles */
+.btn {
+  padding: 12px 24px;
+  margin: 10px 0;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: none;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.btn-black {
+  background-color: black;
+  color: white;
+  border: 2px solid black;
+}
+
+.btn-wishlist {
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+}
+
+/* Quantity Selector */
+.quantity-selector {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.quantity-selector button {
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  border: none;
+  width: 35px;
+  height: 35px;
+  font-size: 24px;
+  border-radius: 5px;
+}
+
+.quantity-selector input {
+  width: 60px;
+  text-align: center;
+  margin: 0 5px;
+  border: 1px solid #333;
+  border-radius: 5px;
+}
+
+/* Stock Indicator */
+.stock-indicator {
+  width: 100px;
+  height: 25px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+}
+
+.stock-indicator.in-stock {
+  background-color: green;
+}
+
+.stock-indicator.out-of-stock {
+  background-color: red;
+}
+
+/* Price Display */
+.price {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+</style>
+<div class="container my-5">
+  <div class="card">
+    <div class="card-left">
+      <img src="{{ product.product_image.url }}" alt="Product image">
+    </div>
+    <div class="card-right">
+      <div class="card-info">
+        <h2>{{ product.name }}</h2>
+        <span class="author">Author: {{ product.author }}</span>
+        <span class="genre">Genre: {{ product.genre.all|join:", " }}</span>
+        <div class="description">
+          <h3>Description:</h3>
+          <p>{{ product.product_description }}</p>
+        </div>
+        <div class="price">
+          Price: {{ product.original_price }} JOD
+        </div>
+      </div>
+      <div class="stock-indicator{% if product.quantity > 0 %} in-stock{% else %} out-of-stock{% endif %}">
+        {% if product.quantity > 0 %}
+          In stock
+        {% else %}
+          Out of stock
+        {% endif %}
+      </div>
+      <div class="card-buttons">
+        <div class="quantity-selector">
+          <button id="decrement-btn" class="decrement-btn">-</button>
+          <input id="quantity-input" type="text" name="quantity" value="1">
+          <button id="increment-btn" class="increment-btn">+</button>
+        </div>
+        <button type="button" class="btn btn-black">Add to Cart 🛒</button>
+        <button type="button" class="btn btn-wishlist">Add to Wishlist 🖤</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

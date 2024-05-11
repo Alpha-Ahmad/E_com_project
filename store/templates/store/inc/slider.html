@@ -1,0 +1,45 @@
+{% load static %}
+<!---Indicators Sliders html code for the home page taken from bootstrap.com and adjusted using AI-->
+<style>
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: black;
+  border-radius: 50%; /* Makes the arrows circular */
+  padding: 10px; /* Adds some space around the arrows */
+}
+
+/* Changes the color of the arrows to grey when hovered over */
+.carousel-control-prev-icon:hover,
+.carousel-control-next-icon:hover {
+  background-color: grey;
+  color: black;
+}
+</style>
+
+<div id="carouselExampleIndicators" class="carousel slide">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <!--images are taken from the static folder-->
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{% static 'images/slider1.png' %}" height = "350px" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'images/slider2.png' %}" height = "350px" pxclass="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'images/slider3.png' %}" height = "350px" class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
